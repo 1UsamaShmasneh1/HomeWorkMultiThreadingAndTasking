@@ -15,7 +15,6 @@ namespace Question4
     #region Sum via thread
     class Sum1
     {
-        public Thread thread;
         public int TotalSum {  get; set; }
         object lockObject = new object();
 
@@ -23,9 +22,10 @@ namespace Question4
         {
             for(int i = 0; i < num / 200000; i++)
             {
-                thread = new Thread(() => SumNumbers(i * 200000, (i + 1) * 200000));
+                new Thread(() => SumNumbers(i * 200000, (i + 1) * 200000)).Start();
+
             }
-            thread = new Thread(() => SumNumbers(num - (num % 200000), num));
+            new Thread(() => SumNumbers(num - (num % 200000), num)).Start();
         }
 
         private void SumNumbers(int num1, int num2)
