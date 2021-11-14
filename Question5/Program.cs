@@ -9,7 +9,7 @@ namespace Question5
     {
         public static void Main(string[] args)
         {
-            Search1 search1 = new Search1("C", "c");
+            Search1 search1 = new Search1("D", "c");
             var resul = search1.Searching();
         }
     }
@@ -51,7 +51,7 @@ namespace Question5
             {
                 new Thread(() =>
                 {
-                    if (IsContainsSearchTerm(file.Name.ToString()))
+                    if (IsContainsSearchTerm(file.ToString()))
                     {
                         lock (lockObject)
                         {
@@ -65,6 +65,7 @@ namespace Question5
 
         private bool IsContainsSearchTerm(string file)
         {
+            
             string line;
             using (StreamReader  reader = new StreamReader(file))
             {
