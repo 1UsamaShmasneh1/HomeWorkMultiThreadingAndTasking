@@ -127,7 +127,7 @@ namespace Question5
             {
                 foreach (var file in AllFiles)
                 {
-                    if (IsContainsSearchTerm(file.Name.ToString()))
+                    if (IsContainsSearchTerm(file.ToString()))
                     {
                         lock (lockObject)
                         {
